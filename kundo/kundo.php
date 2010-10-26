@@ -46,7 +46,7 @@ function kundo_plugin_options() {
   	echo '<h2>Kundo</h2>';
   	wp_nonce_field('update-options');
 	?>
-	<p>Fyll i ditt kundoinformation</p>
+	<p>Fyll i din kundoinformation</p>
 	<form method="post" action="options.php">
 	    <?php settings_fields( 'kundo-settings-group' ); ?>
 	<table class="form-table">
@@ -78,6 +78,10 @@ function kundo_dashboard_widget_function() {
 	<style>
 	#tabs {
 	   border: none;
+	}
+
+	#tabs h4 a {
+		color: #2182C4;
 	}
 
 	#tabs ul {
@@ -127,7 +131,7 @@ function kundo_get_stuff($type) {
 	foreach ($data as $value) {
 		if ($i > $amount) { break; }
 		?>
-		<h4><a href="<?=$value->absolute_url?>" target="_blank"><?=$value->title?></a> av <?=$value->user->first_name?></h4>
+		<h4><a href="<?=$value->absolute_url?>" target="_blank"><?=$value->title?> av <?=$value->user->first_name?></a></h4>
 		<span style="font-size: 10px;"><?=$value->pub_date?></span>
 		<span>
 		<p><?=$value->text?></p>
